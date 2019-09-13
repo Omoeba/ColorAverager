@@ -1,0 +1,2 @@
+# ColorAverager
+Averages hex colors
