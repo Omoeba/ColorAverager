@@ -111,3 +111,4 @@ while True:
           #       foregroundList = [255, 255, 255]
             pyperclip.copy(result)
  #           print(get_color_escape(foregroundList[0], foregroundList[1], foregroundList[2], True) + get_color_escape(colorList[0], colorList[1], colorList[2], False) + result + " has been copied to your clipboard" + RESET)
+            print(result + " has been copied to your clipboard!")
