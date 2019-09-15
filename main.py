@@ -229,8 +229,9 @@ def ColorAverager():
                     print(noResult)
                     continue
             elif userInput == "":
+                userInput = pyperclip.paste()
                 print(userInput + " was pasted from clipboard")
-                userInput = pyperclip.paste().lstrip('#')
+                userInput = userInput.lstrip("#")
             elif userInput == "refresh":
                 continue
             try:
@@ -273,8 +274,9 @@ def ColorAverager():
                         print(noResult)
                         continue
                 elif userInput == "":
+                    userInput = pyperclip.paste()
                     print(userInput + " was pasted from clipboard")
-                    userInput = pyperclip.paste().lstrip('#')
+                    userInput = userInput.lstrip("#")
                 elif userInput == "refresh":
                     continue
                 try:
@@ -317,8 +319,9 @@ def luminenceCalculator(stubInput, stub=False):
                 continue
             elif userInput == "":
                 print(lineSeparater)
+                userInput = pyperclip.paste()
                 print(userInput + " was pasted from clipboard")
-                userInput = pyperclip.paste().lstrip('#')
+                userInput = userInput.lstrip("#")
             elif userInput == "refresh":
                 continue
             try:
@@ -354,8 +357,9 @@ def brownessCalculator(color1, color2, color3, hex, interactive = False):
                 continue
             elif userInput == "":
                 print(lineSeparater)
+                userInput = pyperclip.paste()
                 print(userInput + " was pasted from clipboard")
-                userInput = pyperclip.paste().lstrip('#')
+                userInput = userInput.lstrip("#")
             elif userInput == "refresh":
                 continue
             try:
