@@ -15,7 +15,7 @@ def ts():
     return shutil.get_terminal_size()
 
 
-def lineSeparater():
+def lineSeparator():
     return "━" * ts().columns
 
 
@@ -145,7 +145,7 @@ def ColorAverager():
     loopAmount = ""
     # errorColor = bg('yellow') + fg('white')
     # reset = attr('reset')
-    print(lineSeparater())
+    print(lineSeparator())
     helpPrinter()
     while True:
         if userInput == "quit":
@@ -153,7 +153,7 @@ def ColorAverager():
         if loopAmount == "quit":
             break
         while True:
-            print(lineSeparater())
+            print(lineSeparator())
             loopAmount = input("How many colors do you want to calculate: ")
             if loopAmount == "quit":
                 break
@@ -161,26 +161,26 @@ def ColorAverager():
                 try:
                     lum = luminenceCalculator((result.lstrip("#")), True)
                     pyperclip.copy((str(lum)))
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print("Brightness: " + str(lum))
                     continue
                 except:
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(noResult)
                     continue
             elif loopAmount == "br":
                 try:
                     br = brownessCalculator(colorList[0], colorList[1], colorList[2], result.lstrip("#"))
                     pyperclip.copy((str(br)))
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print("Brownness: " + str(br))
                     continue
                 except:
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(noResult)
                     continue
             elif loopAmount == "help":
-                print(lineSeparater())
+                print(lineSeparator())
                 helpPrinter()
                 continue
             elif loopAmount == "refresh":
@@ -190,46 +190,46 @@ def ColorAverager():
                     loopAmount = int(loopAmount)
                     i = 0
                 except:
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(invalidAmount)
                     continue
                 break
         while True:
             if loopAmount == "quit":
                 break
-            print(lineSeparater())
+            print(lineSeparator())
             userInput = input('Color 1: ').lstrip('#')
             if userInput == "quit":
                 break
             elif userInput == "help":
-                print(lineSeparater())
+                print(lineSeparator())
                 helpPrinter()
                 continue
             elif userInput == "lum":
                 try:
                     lum = luminenceCalculator((result.lstrip("#")), True)
                     pyperclip.copy((str(lum)))
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print("Brightness: " + str(lum))
                     continue
                 except:
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(noResult)
                     continue
             elif userInput == "br":
                 try:
                     br = brownessCalculator(colorList[0], colorList[1], colorList[2], result.lstrip("#"))
                     pyperclip.copy((str(br)))
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print("Brownness: " + str(br))
                     continue
                 except:
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(noResult)
                     continue
             elif userInput == "":
                 userInput = pyperclip.paste()
-                print(lineSeparater())
+                print(lineSeparator())
                 print(userInput + " was pasted from clipboard")
                 userInput = userInput.lstrip("#")
             elif userInput == "refresh":
@@ -238,44 +238,44 @@ def ColorAverager():
                 colorList = list(int(userInput[i:i + 2], 16) for i in (0, 2, 4))
                 break
             except:
-                print(lineSeparater())
+                print(lineSeparator())
                 print(invalidHex)
                 continue
         if (loopAmount != "quit") and (userInput != "quit"):
             while i < (loopAmount - 1):
-                print(lineSeparater())
+                print(lineSeparator())
                 userInput = input("Color" + " " + str(i + 2) + ": ").lstrip('#')
                 if userInput == "quit":
                     break
                 elif userInput == "help":
-                    print(lineSeparater())
+                    print(lineSeparator())
                     helpPrinter()
                     continue
                 elif userInput == "lum":
                     try:
                         lum = luminenceCalculator((result.lstrip("#")), True)
                         pyperclip.copy((str(lum)))
-                        print(lineSeparater())
+                        print(lineSeparator())
                         print("Brightness: " + str(lum))
                         continue
                     except:
-                        print(lineSeparater())
+                        print(lineSeparator())
                         print(noResult)
                         continue
                 elif userInput == "br":
                     try:
                         br = brownessCalculator(colorList[0], colorList[1], colorList[2], result.lstrip("#"))
                         pyperclip.copy((str(br)))
-                        print(lineSeparater())
+                        print(lineSeparator())
                         print("Brownness: " + str(br))
                         continue
                     except:
-                        print(lineSeparater())
+                        print(lineSeparator())
                         print(noResult)
                         continue
                 elif userInput == "":
                     userInput = pyperclip.paste()
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(userInput + " was pasted from clipboard")
                     userInput = userInput.lstrip("#")
                 elif userInput == "refresh":
@@ -283,7 +283,7 @@ def ColorAverager():
                 try:
                     userList = list(int(userInput[i:i + 2], 16) for i in (0, 2, 4))
                 except:
-                    print(lineSeparater())
+                    print(lineSeparator())
                     print(invalidHex)
                     continue
                 colorList = (numpy.array(colorList) + numpy.array(userList))
@@ -300,26 +300,26 @@ def ColorAverager():
                 #       foregroundList = [255, 255, 255]
                 pyperclip.copy(result)
                 #           print(get_color_escape(foregroundList[0], foregroundList[1], foregroundList[2], True) + get_color_escape(colorList[0], colorList[1], colorList[2], False) + result + " has been copied to your clipboard" + RESET)
-                print(lineSeparater())
+                print(lineSeparator())
                 print(result + " has been copied to your clipboard!")
 
 
 
 def luminenceCalculator(stubInput, stub=False):
     if stub == False:
-        print(lineSeparater())
+        print(lineSeparator())
         print(lumHelpPrinter())
         while True:
-            print(lineSeparater())
+            print(lineSeparator())
             userInput = input("Color: ").lstrip("#")
             if userInput == "quit":
                 break
             elif userInput == "help":
-                print(lineSeparater())
+                print(lineSeparator())
                 print(lumHelpPrinter())
                 continue
             elif userInput == "":
-                print(lineSeparater())
+                print(lineSeparator())
                 userInput = pyperclip.paste()
                 print(userInput + " was pasted from clipboard")
                 userInput = userInput.lstrip("#")
@@ -333,7 +333,7 @@ def luminenceCalculator(stubInput, stub=False):
                 print("Brightness is: " + brightness)
                 continue
             except:
-                print(lineSeparater())
+                print(lineSeparator())
                 print(invalidHex)
                 continue
     if stub == True:
@@ -345,19 +345,19 @@ def luminenceCalculator(stubInput, stub=False):
 
 def brownessCalculator(color1, color2, color3, hex, interactive = False):
     if interactive == True:
-        print(lineSeparater())
+        print(lineSeparator())
         print(brownHelpPrinter())
         while True:
-            print(lineSeparater())
+            print(lineSeparator())
             userInput = input("Color: ").lstrip("#")
             if userInput == "quit":
                 break
             elif userInput == "help":
-                print(lineSeparater())
+                print(lineSeparator())
                 print(brownHelpPrinter())
                 continue
             elif userInput == "":
-                print(lineSeparater())
+                print(lineSeparator())
                 userInput = pyperclip.paste()
                 print(userInput + " was pasted from clipboard")
                 userInput = userInput.lstrip("#")
@@ -370,7 +370,7 @@ def brownessCalculator(color1, color2, color3, hex, interactive = False):
                 print(str(yellow * luminence) + " CBU")
                 continue
             except:
-                print(lineSeparater())
+                print(lineSeparator())
                 print(invalidHex)
                 continue
     else:
@@ -380,10 +380,10 @@ def brownessCalculator(color1, color2, color3, hex, interactive = False):
 
 
 def main():
-    print(lineSeparater())
+    print(lineSeparator())
     print(masterHelpPrinter())
     while True:
-        print(lineSeparater())
+        print(lineSeparator())
         mode = input(promptPrinter())
         if mode == "quit":
             break
@@ -394,12 +394,12 @@ def main():
         elif mode == "3":
             brownessCalculator(0, 0, 0, 0, True)
         elif mode == "help":
-            print(lineSeparater())
+            print(lineSeparator())
             print(masterHelpPrinter())
         elif mode == "refresh":
             continue
         else:
-            print(lineSeparater())
+            print(lineSeparator())
             print(invalidAmount)
             continue
 
